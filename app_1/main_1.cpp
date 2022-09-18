@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
         }
         for (int i = 0; i < numElements; i++)
         {
-            cout << distinctWords[i].word << " Count: " << distinctWords[i].count << endl;
+            cout << distinctWords[i].word << endl;
         }
     }
 
