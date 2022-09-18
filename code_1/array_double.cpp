@@ -40,22 +40,27 @@ int getTotalNumberNonIgnoreWords(wordRecord distinctWords[], int length){
 
 
 void sortArray(wordRecord distinctWords[], int length){
-    int num = 0;
-    wordRecord temp[length];
-     for(int i = 0;i<length;i++) {
-        temp[i] = distinctWords[i];
-    }
-    for(int i=0;i<length;i++) {
-        if(distinctWords[i].count > num) {
-            temp[i+1] = temp[i];
-            temp[i] = distinctWords[i];
-        }
-        temp[i] = distinctWords[i];
-    }
+    // int num = 0;
+    // wordRecord temp[length];
+    //  for(int i = 0;i<length;i++) {
+    //     temp[i] = distinctWords[i];
+    // }
+    // for(int i=0;i<length;i++) {
+    //     if(distinctWords[i].count > num) {
+    //         num = distinctWords[i].count;
+    //         temp[i+1] = temp[i];
+    //         temp[i] = distinctWords[i];
+            
+    //     }
+    //     temp[i] = distinctWords[i];
+    // }
 
-    for(int i = 0;i<length;i++) {
-        distinctWords[i] = temp[i];
-    }
+    // for(int i = 0;i<length;i++) {
+    //     distinctWords[i] = temp[i];
+    // }
+
+
+    
 }
 
 
