@@ -2,6 +2,7 @@
 
 void getIgnoreWords(const char *ignoreWordFileName, string ignoreWords[]){
     ifstream inStream;
+
     inStream.open(ignoreWordFileName);
     string str;
 
@@ -11,8 +12,10 @@ void getIgnoreWords(const char *ignoreWordFileName, string ignoreWords[]){
             ignoreWords[numElements] = str;
             numElements++;
         }
+    } else {
+        std::cout << "Failed to open " << ignoreWordFileName << std::endl;
     }
-    std::cout << "Failed to open " << ignoreWordFileName << std::endl;
+    
 
 }
 
