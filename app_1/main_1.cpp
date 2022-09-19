@@ -6,11 +6,10 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    int n;
+    int n = stoi(argv[1]);
     ifstream text;
     string open = argv[2];
     string str;
-    n = *argv[1] / 2;
     string ignoreWords[50];
     getIgnoreWords(argv[3], ignoreWords);
     wordRecord *distinctWords = new wordRecord[100];
@@ -81,7 +80,7 @@ int main(int argc, char *argv[])
         cout << "Distinct non-common words: " << numElements << endl;
         cout << "Total non-common words: " << totalWords << endl;
         cout << "Probability of next 10 words from rank " << n << endl;
-        cout << "--------------------------------------- "<<endl;
+        cout << "---------------------------------------"<<endl;
         printTenFromN(distinctWords, n, totalWords);
         
     }
