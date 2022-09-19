@@ -65,14 +65,9 @@ void sortArray(wordRecord distinctWords[], int length){
 
 
 void printTenFromN(wordRecord distinctWords[], int N, int totalNumWords){
-    cout << "Probability of next 10 words from rank " << N << endl;
-    cout << "--------------------------------------- "<<endl;
-
     for(int i = N;i<(N+10);i++) {
-        float probability = (distinctWords[i].count / float(totalNumWords));
-        // cout << fixed << setprecision(5) << probability << endl;
-        cout << fixed << setprecision(5)<<probability<<" - " <<distinctWords[i].word<<endl;
-        cout;
+        float probability = (float) distinctWords[i].count / totalNumWords;
+        cout << fixed << setprecision(5)<<probability<< " - " <<distinctWords[i].word<<endl;
     }
 }
 

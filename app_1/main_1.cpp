@@ -28,11 +28,8 @@ int main(int argc, char *argv[])
     {
         while (text>>str)
         {
-            totalWords++;
-            //cout << str << endl;
             if (!isIgnoreWord(str, ignoreWords, 50))
             {
-
                 bool wordRepeat = true;
 
                 if (numElements == doubling)
@@ -72,18 +69,20 @@ int main(int argc, char *argv[])
                     numElements++;
                 }
             }
+            
         }
         sortArray(distinctWords, numElements);
         
-        // for (int i = 0; i < numElements; i++)
-        // {
-        //     cout << distinctWords[i].word << " Count: " << distinctWords[i].count << endl;
-        // }
+        for(int i = 0;i<numElements;i++) {
+            totalWords += distinctWords[i].count;
+        }
 
         cout << "Array doubled: " << arrayDoubled << endl;
         cout << "Distinct non-common words: " << numElements << endl;
         cout << "Total non-common words: " << totalWords << endl;
-        printTenFromN(distinctWords, n, numElements);
+        cout << "Probability of next 10 words from rank " << n << endl;
+        cout << "--------------------------------------- "<<endl;
+        printTenFromN(distinctWords, n, totalWords);
         
     }
 
