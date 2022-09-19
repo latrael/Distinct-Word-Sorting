@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
         cout << "Array doubled: " << arrayDoubled << endl;
         cout << "Distinct non-common words: " << numElements << endl;
         cout << "Total non-common words: " << totalWords << endl;
-        printTenFromN(distinctWords, *argv[1], numElements);
+        printTenFromN(distinctWords, n, numElements);
         
     }
 
