@@ -6,14 +6,12 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    // int n;
+    int n;
     ifstream text;
     string open = argv[2];
     string str;
-    //text.open(argv[2]);
-    // n = *argv[1] / 2;
+    n = *argv[1] / 2;
     string ignoreWords[50];
-    //cout << argv[3] << endl;
     getIgnoreWords(argv[3], ignoreWords);
     wordRecord *distinctWords = new wordRecord[100];
     int numElements = 0;
@@ -25,7 +23,7 @@ int main(int argc, char *argv[])
     {
         while (text>>str)
         {
-            cout << str << endl;
+            //cout << str << endl;
             if (!isIgnoreWord(str, ignoreWords, 50))
             {
 
@@ -69,10 +67,14 @@ int main(int argc, char *argv[])
                 }
             }
         }
+        sortArray(distinctWords, numElements);
+        
         for (int i = 0; i < numElements; i++)
         {
-            cout << distinctWords[i].word << endl;
+            cout << distinctWords[i].word << " Count: " << distinctWords[i].count << endl;
         }
+        printTenFromN(distinctWords, n, numElements);
+        
     }
 
     return 0;

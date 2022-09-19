@@ -40,30 +40,38 @@ int getTotalNumberNonIgnoreWords(wordRecord distinctWords[], int length){
 
 
 void sortArray(wordRecord distinctWords[], int length){
-    // int num = 0;
-    // wordRecord temp[length];
-    //  for(int i = 0;i<length;i++) {
-    //     temp[i] = distinctWords[i];
-    // }
-    // for(int i=0;i<length;i++) {
-    //     if(distinctWords[i].count > num) {
-    //         num = distinctWords[i].count;
-    //         temp[i+1] = temp[i];
-    //         temp[i] = distinctWords[i];
-            
-    //     }
-    //     temp[i] = distinctWords[i];
-    // }
+    wordRecord temp;
+    for (int i = 0; i < length; i++){
+        for (int j = i+1; j < length; j++){
+            if (distinctWords[i].count < distinctWords[j].count){
+                temp = distinctWords[i];
+                distinctWords[i] = distinctWords[j];
+                distinctWords[j] = temp;
+            }
 
-    // for(int i = 0;i<length;i++) {
-    //     distinctWords[i] = temp[i];
-    // }
+            if(distinctWords[i].count == distinctWords[j].count) {
+                if(distinctWords[i].word.compare(distinctWords[j].word) > 0) {
+                    temp = distinctWords[i];
+                    distinctWords[i] = distinctWords[j];
+                    distinctWords[j] = temp;
+                }
+            }
+
+        }
+    }
 
 
-    
 }
 
 
 void printTenFromN(wordRecord distinctWords[], int N, int totalNumWords){
+    cout << "Probability of next 10 words from rank " << N << endl;
+    cout << "--------------------------------------- "<<endl;
+
+    for(int i = N;i<(N+10);i++) {
+        float probability = (distinctWords[i].count / float(totalNumWords));
+        // cout << fixed << setprecision(5) << probability << endl;
+        cout << fixed << setprecision(5)<<probability<<" - " <<distinctWords[i].word<<endl;
+    }
 }
 
