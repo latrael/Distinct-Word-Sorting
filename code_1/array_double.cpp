@@ -72,6 +72,7 @@ void printTenFromN(wordRecord distinctWords[], int N, int totalNumWords){
         float probability = (distinctWords[i].count / float(totalNumWords));
         // cout << fixed << setprecision(5) << probability << endl;
         cout << fixed << setprecision(5)<<probability<<" - " <<distinctWords[i].word<<endl;
+        cout;
     }
 }
 
