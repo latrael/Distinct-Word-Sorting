@@ -17,12 +17,18 @@ int main(int argc, char *argv[])
     int numElements = 0;
     int doubling = 100;
 
+    int arrayDoubled = 0;
+    int totalWords = 0;
+
+
+
     text.open(open.c_str());
 
     if (text.is_open())
     {
         while (text>>str)
         {
+            totalWords++;
             //cout << str << endl;
             if (!isIgnoreWord(str, ignoreWords, 50))
             {
@@ -44,8 +50,8 @@ int main(int argc, char *argv[])
                     for(int i=0; i < numElements;i++) {
                         distinctWords[i] = temp[i];
                     }
-                    //distinctWords = temp;
                     delete [] temp;
+                    arrayDoubled++;
                     
                 }
 
@@ -69,11 +75,15 @@ int main(int argc, char *argv[])
         }
         sortArray(distinctWords, numElements);
         
-        for (int i = 0; i < numElements; i++)
-        {
-            cout << distinctWords[i].word << " Count: " << distinctWords[i].count << endl;
-        }
-        printTenFromN(distinctWords, n, numElements);
+        // for (int i = 0; i < numElements; i++)
+        // {
+        //     cout << distinctWords[i].word << " Count: " << distinctWords[i].count << endl;
+        // }
+
+        cout << "Array doubled: " << arrayDoubled << endl;
+        cout << "Distinct non-common words: " << numElements << endl;
+        cout << "Total non-common words: " << totalWords << endl;
+        printTenFromN(distinctWords, *argv[1], numElements);
         
     }
 
